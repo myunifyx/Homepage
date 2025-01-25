@@ -1,0 +1,176 @@
+<section class="u-clearfix u-palette-2-dark-3 u-section-3" id="sec-be80">
+  <div
+    class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-sheet-1"
+  >
+    <div
+      class="u-palette-2-base u-shape u-shape-rectangle u-shape-1"
+      data-animation-name="customAnimationIn"
+      data-animation-duration="1500"
+      data-animation-delay="500"
+    ></div>
+    <div
+      class="u-palette-1-base u-shape u-shape-rectangle u-shape-2"
+      data-animation-name="customAnimationIn"
+      data-animation-duration="1500"
+      data-animation-delay="500"
+    ></div>
+    <div
+      class="custom-expanded data-layout-selected u-clearfix u-gutter-0 u-layout-wrap u-layout-wrap-1"
+    >
+      <div class="u-layout">
+        <div class="u-layout-row">
+          <div
+            class="u-container-align-left-md u-container-align-left-sm u-container-align-left-xs u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-white u-layout-cell-1"
+            data-animation-name="customAnimationIn"
+            data-animation-duration="1500"
+            data-animation-delay="200"
+          >
+            <div
+              class="u-container-layout u-valign-middle u-container-layout-1"
+            >
+              <div class="custom-expanded u-list u-list-1">
+                <div class="u-repeater u-repeater-1">
+                  <div
+                    class="u-container-align-left-xs u-container-style u-list-item u-repeater-item u-shape-rectangle"
+                  >
+                    <div
+                      class="u-container-layout u-similar-container u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-bottom-xl u-valign-top-xs u-container-layout-2"
+                    >
+                      <span
+                        class="u-align-left-xs u-file-icon u-icon u-text-palette-1-base u-icon-1"
+                      >
+                        <img src="images/447114-cb198405.png" alt="" />
+                      </span>
+                      <h5 class="u-align-left-xs u-text u-text-1">Email</h5>
+                      <p class="u-align-left-xs u-text u-text-2">
+                        <a
+                          href="mailto:hi@email.com"
+                          class="u-active-none u-border-1 u-border-active-black u-border-hover-black u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-button-link u-button-style u-hover-none u-none u-text-active-black u-text-hover-black u-text-palette-1-base u-btn-1"
+                          >unifyx1113@gmail.com</a
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="u-align-center u-container-align-center u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-60-md u-size-60-sm u-size-60-xs u-white u-layout-cell-2"
+            data-animation-name="customAnimationIn"
+            data-animation-duration="1500"
+            data-animation-delay="200"
+            data-animation-direction=""
+          >
+            <div
+              class="u-container-layout u-valign-middle u-container-layout-3"
+            >
+              <h3 class="u-text u-text-default u-text-3">Have any question?</h3>
+              <p class="u-text u-text-default u-text-4">
+                our email address will not be published. Required field are
+                marked*
+              </p>
+              <div
+                class="custom-expanded u-align-center-md u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-xl u-form u-form-1"
+              >
+                <form
+                  class="u-clearfix u-form-spacing-21 u-form-vertical u-inner-form"
+                  style="padding: 10px"
+                  onsubmit="return handleSubmit(event)"
+                >
+                  <div class="u-form-group u-form-name">
+                    <input
+                      type="text"
+                      placeholder="Enter your Name"
+                      name="name"
+                      class="u-input u-input-rectangle"
+                      required
+                    />
+                  </div>
+                  <div class="u-form-email u-form-group">
+                    <input
+                      type="email"
+                      placeholder="Enter a valid email address"
+                      name="email"
+                      class="u-input u-input-rectangle"
+                      required
+                    />
+                  </div>
+                  <div class="u-form-group u-form-message">
+                    <textarea
+                      placeholder="Enter your message"
+                      rows="4"
+                      cols="50"
+                      name="message"
+                      class="u-input u-input-rectangle"
+                      required
+                    ></textarea>
+                  </div>
+                  <input
+                    type="hidden"
+                    id="ip-address"
+                    name="ipAddress"
+                    value=""
+                  />
+                  <div class="u-align-center u-form-group u-form-submit">
+                    <button
+                      type="submit"
+                      class="u-btn u-btn-round u-btn-submit u-button-style"
+                    >
+                      Send Message
+                    </button>
+                  </div>
+                </form>
+
+                <script>
+                  async function handleSubmit(event) {
+                    event.preventDefault();
+
+                    // Fetch the user's IP address
+                    let ipAddress = "";
+                    try {
+                      const response = await fetch(
+                        "https://api.ipify.org?format=json"
+                      );
+                      const data = await response.json();
+                      ipAddress = data.ip;
+                      document.getElementById("ip-address").value = ipAddress;
+                    } catch (err) {
+                      console.error("Failed to fetch IP address:", err);
+                    }
+
+                    // Collect form data
+                    const form = event.target;
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData.entries());
+
+                    try {
+                      // Submit data to Apps Script
+                      const response = await fetch(
+                        "https://script.google.com/macros/s/AKfycbywS73f9NqohSV7u3bnY3yjOu3OQx11oTp7sF9ji7fyjUIVimAZedB3pdVlfiyTzIzGKA/exec",
+                        {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify(data),
+                        }
+                      );
+
+                      if (response.ok) {
+                        alert("Thank you! Your message has been sent.");
+                        form.reset();
+                      } else {
+                        alert("Unable to send your message. Please try again.");
+                      }
+                    } catch (error) {
+                      alert("An error occurred: " + error.message);
+                    }
+                  }
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
